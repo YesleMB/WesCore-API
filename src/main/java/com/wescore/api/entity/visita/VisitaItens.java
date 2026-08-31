@@ -1,4 +1,4 @@
-package com.wescore.api.entily.visita;
+package com.wescore.api.entity.visita;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
@@ -20,29 +20,29 @@ import lombok.ToString;
 @Entity
 
 @Table(name = "promo_visita_itens")
-public class Visita_itens {
+public class VisitaItens {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Setter(lombok.AccessLevel.NONE) 
     @Column(nullable = false,name = "id_visita_item")
-    private Long idvisita_item;   
+    private Long idvisitaItem;   
 
     @Column(nullable = false,name = "id_visita")
-    private Long id_visita;
+    private Long idVisita;
 
     @Column(nullable = false,name = "id_item")
-    private Long id_item;
+    private Long idItem;
 
     @Column(nullable = false,name = "resposta_texto")
-    private String resposta_texto;
+    private String respostaTexto;
 
     @Column(nullable = false,length = 1,name = "resposta_boolean")
-    private Boolean resposta_boolean;
+    private Boolean respostaBoolean;
 
     @Column(nullable = false,name = "id_opcao_escolhida")
-    private int id_opcao_escolhida;
+    private int idOpcaoEscolhida;
 
     @Column(nullable = false,name = "id_check")
-    private long id_check;
+    private long idCheck;
 
 }

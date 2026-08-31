@@ -1,7 +1,10 @@
-package com.wescore.api.entily.visita;
+package com.wescore.api.entity.visita;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
+
+import java.time.LocalDate;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -25,16 +28,16 @@ public class Visita {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Setter(lombok.AccessLevel.NONE) 
     @Column(nullable = false,name = "id_visita")
-    private Long id_visita;
+    private Long iisita;
 
     @Column(nullable = false,name = "id_promotor")
-    private Long id_promotor;
+    private Long idPromotor;
 
     @Column(nullable = false,name = "codcli")
     private Long codcli;
 
     @Column(nullable = false,name = "dtvisita")
-    private java.util.Date data_visita;
+    private LocalDate dataVisita;
 
     @Column(nullable = false,length = 2,name = "uf")
     private String uf;

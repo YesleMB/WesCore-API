@@ -1,4 +1,4 @@
-package com.wescore.api.entily.checklists;
+package com.wescore.api.entity.checklists;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -22,22 +22,22 @@ import lombok.ToString;
 @Entity
 
 @Table(name = "promo_checklist_itens")
-public class Checklist_itens {
+public class ChecklistItens {
    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Setter(lombok.AccessLevel.NONE) 
     @Column(nullable = false,name = "id_item")
-    private Long id_item;   
+    private Long idItem;   
 
     @Column(nullable = false,name = "id_check")
-    private Long id_check;
+    private Long idCheck;
 
     @Column(nullable = false,name = "pergunta_ordem")
-    private Integer pergunta_ordem;
+    private Integer perguntaOrdem;
 
     @Column(nullable = false,name = "pergunta_texto")
-    private String pergunta_texto;
+    private String perguntaTexto;
 
     @Column(nullable = false,name = "tipo_pergunta")
-    private String tipo_pergunta;
+    private String tipoPergunta;
 }

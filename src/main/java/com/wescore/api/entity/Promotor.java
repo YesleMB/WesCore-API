@@ -1,4 +1,4 @@
-package com.wescore.api.entily;
+package com.wescore.api.entity;
 
 
 import jakarta.persistence.Column;
@@ -59,7 +59,7 @@ public class Promotor {
     @Column(length = 2,name = "tipoFunc")
     private String tipoFunc;
 
-    @Column(nullable = false, length = 14,name = "email")
+    @Column(nullable = false, length = 255,name = "email")
     private String email;
 
     @Column(nullable = false, length = 11,name = "senha")

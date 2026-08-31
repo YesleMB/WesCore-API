@@ -1,4 +1,4 @@
-package com.wescore.api.entily.checklists;
+package com.wescore.api.entity.checklists;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -21,7 +21,7 @@ import lombok.ToString;
 @Entity
 
 @Table(name = "promo_checklist_opcoes")
-public class Checklist_opceos {
+public class ChecklistOpceos {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Setter(lombok.AccessLevel.NONE) 
@@ -29,7 +29,7 @@ public class Checklist_opceos {
     private Long id;
 
     @Column(nullable = false,name = "id_item")
-    private Long id_item;
+    private Long idItem;
 
     @Column(nullable = false,length = 255,name = "opcao_texto")
     private String opcao;

@@ -1,4 +1,6 @@
-package com.wescore.api.entily.checklists;
+package com.wescore.api.entity.checklists;
+
+import java.time.LocalDate;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -20,7 +22,7 @@ import lombok.ToString;
 
 @Entity
 @Table(name = "promo_checklist_resposta")
-public class Checklist_resposta {
+public class ChecklistResposta {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Setter(lombok.AccessLevel.NONE)
@@ -28,17 +30,17 @@ public class Checklist_resposta {
     private Long id_resposta;
 
     @Column(nullable = false,name = "id_item")
-    private Long id_item;
+    private Long idItem;
 
     @Column(nullable = false,name = "resposta_texto")
-    private String resposta_texto;
+    private String respostaTexto;
 
     @Column(nullable = false,name = "resposta_booleana")
-    private Boolean resposta_booleana;
+    private Boolean respostaBooleana;
 
     @Column(nullable = false,name = "id_opcao_escolhida")
-    private int id_opcao_escolhida;
+    private int idOpcaoEscolhida;
 
     @Column(nullable = false,name = "data_respondido")
-    private java.util.Date data_respondido;
+    private LocalDate dataRespondido;
 }

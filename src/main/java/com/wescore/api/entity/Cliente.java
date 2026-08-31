@@ -1,4 +1,4 @@
-package com.wescore.api.entily;
+package com.wescore.api.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -50,7 +50,7 @@ public class Cliente {
         private String endereco;
 
         @Column(nullable = false,length = 10,name = "numero")
-        private int numero;
+        private String numero;
 
         @Column(nullable = false,length = 255,name = "bairro")
         private String bairro;

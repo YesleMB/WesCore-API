@@ -18,8 +18,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("/api")
 public class PromotorController {
     private final PromotorService promotorService;
-@GetMapping("/promotor/{id}")
-public ResponseEntity<Promotor> buscarPorId(@PathVariable Long id) {
+@   GetMapping("/promotor/{id}")
+    public ResponseEntity<Promotor> buscarPorId(@PathVariable Long id) {
     Promotor promotor = promotorService.buscarPorId(id);
     
     if (promotor != null) {

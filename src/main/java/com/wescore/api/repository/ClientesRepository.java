@@ -8,8 +8,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 @Repository
 public interface ClientesRepository extends JpaRepository<Cliente, Long> {
-    @Query("
-    select 
+    @Query(value = """
+				   select 
 	pc.codcli,
 	pc.tipopessoa,
 	pc.cliente,
@@ -20,12 +20,14 @@ public interface ClientesRepository extends JpaRepository<Cliente, Long> {
 	pc.bairro,
 	pc.endereco,
 	pc.numero,
-	pr.qt_visitas  
+	pr.qt_Visitas  
 from promo_relacao pr 
 inner join promo_clientes pc
 	on pr.codcli = pc.codcli 
 where pr.id_promotor = :idPromotor
-;")
+;
+""", nativeQuery = true)
+ 
     List<Cliente> findClientesByIdPromotor(Long idPromotor);
     
 }

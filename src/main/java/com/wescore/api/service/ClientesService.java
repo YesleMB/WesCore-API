@@ -16,6 +16,11 @@ public class ClientesService {
         return clientesRepository.findClientesByIdPromotor(idPromotor);
     }
 
+    public Cliente cadastrar(Cliente cliente) {
+            
+        return clientesRepository.save(cliente);
+    }
+
 
 
 }

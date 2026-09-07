@@ -29,5 +29,6 @@ where pr.id_promotor = :idPromotor
 """, nativeQuery = true)
  
     List<Cliente> findClientesByIdPromotor(Long idPromotor);
-    
+
+ 
 }

@@ -21,7 +21,7 @@ import lombok.ToString;
 @Entity
 
 @Table(name = "promo_checklist_opcoes")
-public class ChecklistOpceos {
+public class ChecklistOpcoes {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Setter(lombok.AccessLevel.NONE) 

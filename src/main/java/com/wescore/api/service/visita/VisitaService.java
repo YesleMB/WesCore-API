@@ -1,10 +1,10 @@
-package com.wescore.api.service;
+package com.wescore.api.service.visita;
 
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import com.wescore.api.entity.visita.Visita;
-import com.wescore.api.repository.VisitaRepository;
+import com.wescore.api.repository.visitas.VisitaRepository;
 
 import lombok.RequiredArgsConstructor;
 

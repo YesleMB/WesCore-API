@@ -1,4 +1,4 @@
-package com.wescore.api.repository;
+package com.wescore.api.repository.visitas;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

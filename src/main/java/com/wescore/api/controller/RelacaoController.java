@@ -19,11 +19,11 @@ public class RelacaoController {
     public ResponseEntity<Relacao> buscarPorId(@PathVariable Long codcli, @PathVariable Long idPromotor) {
         Relacao relacao = relacaoService.buscarPorId(codcli, idPromotor);
         
-        if (relacao != null) {
-            return ResponseEntity.ok(relacao); 
+        if (relacao == null) {
+            throw new RuntimeException("Relação não encontrada para o codcli: " + codcli + " e idPromotor: " + idPromotor);
         }
         
-        return ResponseEntity.notFound().build(); 
+        return ResponseEntity.ok(relacao); 
     }
 
 

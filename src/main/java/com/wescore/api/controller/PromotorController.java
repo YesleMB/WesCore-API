@@ -20,12 +20,12 @@ public class PromotorController {
     private final PromotorService promotorService;
 @   GetMapping("/promotor/{id}")
     public ResponseEntity<Promotor> buscarPorId(@PathVariable Long id) {
-    Promotor promotor = promotorService.buscarPorId(id);
-    
-    if (promotor != null) {
+        Promotor promotor = promotorService.buscarPorId(id);
+        
+        if (promotor == null) {
+            throw new RuntimeException("Promotor não encontrado com o ID: " + id);
+        }
+        
         return ResponseEntity.ok(promotor); 
     }
-    
-    return ResponseEntity.notFound().build(); 
-}
 }

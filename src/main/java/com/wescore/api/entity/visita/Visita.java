@@ -28,7 +28,7 @@ public class Visita {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Setter(lombok.AccessLevel.NONE) 
     @Column(nullable = false,name = "id_visita")
-    private Long iisita;
+    private Long idVisita;
 
     @Column(nullable = false,name = "id_promotor")
     private Long idPromotor;

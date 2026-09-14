@@ -9,6 +9,9 @@ import com.wescore.api.entity.visita.Visita;
 @Repository 
 public interface  VisitaRepository extends JpaRepository <Visita, Long> {
     List<Visita> findByIdPromotor(Long idPromotor);
+
+    
 }
+
     
 

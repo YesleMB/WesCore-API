@@ -17,4 +17,6 @@ public class VisitaItensService {
     public List<VisitaItens> buscarPorIdVisita(Long idVisita) {
         return visitasItensRepository.findByIdVisita(idVisita);
     }
+
+    
 }

@@ -1,9 +1,11 @@
 package com.wescore.api.controller.visita;
 
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.wescore.api.dto.VisitaRequestDTO;
 import com.wescore.api.entity.visita.Visita;
 import com.wescore.api.service.visita.VisitaService;
 import java.util.List;
@@ -11,11 +13,13 @@ import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
 
 
 
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 @RequiredArgsConstructor
 @RestController 
@@ -35,5 +39,10 @@ public class VisitaController {
             throw new RuntimeException("Nenhuma visita encontrada para o promotor com ID: " + idPromotor);
         }
         return ResponseEntity.ok(visitas);
+    }
+    @PostMapping("/enviar-visita")
+    public ResponseEntity<Visita> cadastrarVisita(@RequestBody VisitaRequestDTO visitaRequest) {
+        Visita visitaSalva = visitaService.salvarVisitaComItens(visitaRequest);
+        return ResponseEntity.status(HttpStatus.CREATED).body(visitaSalva);
     }
 }

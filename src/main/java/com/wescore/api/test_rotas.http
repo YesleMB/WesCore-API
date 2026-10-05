@@ -1,0 +1,18 @@
+### 1. Fazer Login e capturar Token
+# @name loginRequest
+POST http://localhost:8080/api/auth/login
+Content-Type: application/json
+
+{
+  "id": 1,
+  "senha": "123456"
+}
+
+### 2. Buscar visitas do Promotor usando o token gerado acima
+GET http://localhost:8080/api/visita/promotor/1
+Authorization: Bearer {{loginRequest.response.body.token}}
+
+### 3. Buscar visita pelo ID usando o token gerado acima
+GET http://localhost:8080/api/visita-itens/8
+Authorization: Bearer {{loginRequest.response.body.token}}
+

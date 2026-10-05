@@ -62,6 +62,6 @@ public class Promotor {
     @Column(nullable = false, length = 255,name = "email")
     private String email;
 
-    @Column(nullable = false, length = 11,name = "senha")
+    @Column(nullable = false, length = 255,name = "senha")
     private String senha;
 }

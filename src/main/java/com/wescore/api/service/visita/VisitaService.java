@@ -31,10 +31,10 @@ public class VisitaService {
         return visitaRepository.save(visita);
     }
 
-    @Transactional
-    public Visita salvarVisitaComItens(VisitaRequestDTO dto) {
-        Visita visita = new Visita();
-        visita.setIdPromotor(dto.idPromotor());
+   @Transactional
+public Visita salvarVisitaComItens(VisitaRequestDTO dto, Long idPromotorAutenticado) {
+    Visita visita = new Visita();
+    visita.setIdPromotor(idPromotorAutenticado);
         visita.setCodcli(dto.codcli());
         visita.setDataVisita(dto.dataVisita());
         visita.setUf(dto.uf());

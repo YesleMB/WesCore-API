@@ -7,7 +7,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.wescore.api.dto.VisitaRequestDTO;
 import com.wescore.api.entity.visita.Visita;
+import com.wescore.api.security.SecurityUtils;
 import com.wescore.api.service.visita.VisitaService;
+
+import java.security.Principal;
 import java.util.List;
 
 import lombok.RequiredArgsConstructor;
@@ -32,17 +35,29 @@ public class VisitaController {
         return ResponseEntity.ok(visitaService.buscarPorId(idVisita));
     }
 
-    @GetMapping("/visita/promotor/{idPromotor}")
-    public ResponseEntity<List<Visita>> buscarPorIdPromotor(@PathVariable Long idPromotor) {
-        List<Visita> visitas = visitaService.buscarPorIdPromotor(idPromotor);
-        if (visitas.isEmpty()) {
-            throw new RuntimeException("Nenhuma visita encontrada para o promotor com ID: " + idPromotor);
-        }
-        return ResponseEntity.ok(visitas);
+ @GetMapping("/visita/minhas-visitas") 
+public ResponseEntity<List<Visita>> buscarMinhasVisitas(Principal principal) {
+    
+    
+    Long idPromotorAutenticado = Long.valueOf(principal.getName());
+    
+    List<Visita> visitas = visitaService.buscarPorIdPromotor(idPromotorAutenticado);
+    
+    if (visitas.isEmpty()) {
+        
+        return ResponseEntity.noContent().build(); 
     }
-    @PostMapping("/enviar-visita")
-    public ResponseEntity<Visita> cadastrarVisita(@RequestBody VisitaRequestDTO visitaRequest) {
-        Visita visitaSalva = visitaService.salvarVisitaComItens(visitaRequest);
-        return ResponseEntity.status(HttpStatus.CREATED).body(visitaSalva);
-    }
+    
+    return ResponseEntity.ok(visitas);
 }
+   
+    @PostMapping("/enviar-visita")
+public ResponseEntity<Visita> cadastrarVisita(@RequestBody VisitaRequestDTO visitaRequest) {
+    Long idRealDoPromotor = SecurityUtils.getUsuarioLogadoId();
+    
+    Visita visitaSalva = visitaService.salvarVisitaComItens(visitaRequest, idRealDoPromotor);
+    return ResponseEntity.status(HttpStatus.CREATED).body(visitaSalva);
+}
+}
+
+
